@@ -18,14 +18,22 @@ e.g.
 CPP_INCLUDES       = -I$(SOA_CLIENT_KIT)\cpp\includes\cpp\include -I$(SOA_CLIENT_KIT)\toolbox\XMLTools\include -I$(SOA_CLIENT_KIT)\toolbox\XMLTools\include\icu\common
 ```
 
-Add xerces314 to YOURLIBRARY_LIBS in makefile
+In case on non-soa library add CPP_INCLUDES in non-soa makefile
+Soa make file already contains it
+e.g.
+```
+YOURLIBRARY_INCLUDES   = $(CPP_INCLUDES) -I$(BASE_PATH)$(PS)src$(PS)server
+```
+
+
+Add xerces321 to YOURLIBRARY_LIBS in makefile
 
 e.g.
 ```make
 YOURLIBRARY_LIBS   = $(LIB_PREFIX)metaframework$(LIB_SUFFIX) \
                                   ...
                                   $(LIB_PREFIX)mld$(LIB_SUFFIX)  $(LIB_PREFIX)base_utils$(LIB_SUFFIX) $(SYSLIBS) \
-                                  xerces314$(LIB_SUFFIX)
+                                  xerces321$(LIB_SUFFIX)
                                   ```
 
 ## Configure BMIDE \(eclipse CDT\)
